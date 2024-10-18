@@ -34,7 +34,7 @@ public class GettingStartedApplication {
         if (pathFragment.equals("favicon.ico")) {
             model.addAttribute("path_fragment", "This was the favicon.ico route.");
         } else {
-            String openParen = pathFragment.charAt(0);
+            String openParen = pathFragment.substring(0,1);
             if (!openParen.equals("(")) {
                 model.addAttribute("error", "Error: The first character in the path fragment should be an open parenthesis, not " + openParen);
                 return "error";
