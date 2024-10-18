@@ -36,7 +36,7 @@ public class GettingStartedApplication {
         } else {
             String openParen = pathFragment.substring(0,1);
             if (!openParen.equals("(")) {
-                model.addAttribute("error", "Error: The first character in the path fragment should be an open parenthesis, not " + openParen);
+                model.addAttribute("error", "Error: The first character in the path fragment should be \"\\(\", not \"" + openParen + "\".");
                 return "error";
             }
             pathFragment = pathFragment.substring(1);
