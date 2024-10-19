@@ -35,7 +35,7 @@ public class GettingStartedApplication {
         if (pathFragment.equals("favicon.ico")) {
             model.addAttribute("path_fragment", "This was the favicon.ico route.");
         } else {
-            String thisChar = pathFragment.charAt(0);
+            String thisChar = pathFragment.substring(0, 1);
             if (!thisChar.equals(openParen)) {
                 model.addAttribute("error", "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.");
                 return "error";
