@@ -41,6 +41,7 @@ public class GettingStartedApplication {
                 model.addAttribute("error", "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.");
                 return "error";
             }
+            pathFragment = pathFragment.substring(1);
             thisChar = pathFragment.substring(pathFragment.length() - 1);
             if (!("'" + thisChar + "'").equals(closeParen)) {
                 model.addAttribute("error", "The last character in the path fragment should be " + closeParen + " not '" + thisChar + "'.");
