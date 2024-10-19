@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'result')}">
     <body>
         <div class="container">
-            <h4 style="text-align: center;">Results of diagonalization</h4>
+            <h5 style="text-align: center;">Results of diagonalization</h5>
             <div align="center">
                 <table border="1">
                     <thead>
@@ -18,7 +18,6 @@
                     <thead>
                         <tr>
                             <th th:attr="style=${tstyle}, colspan=${n}">Eigenvalues</th>
-                            <!-- <th th:attr="style=${tstyle} colspan=${n}" colspan="*">Eigenvalues</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +28,6 @@
                     <thead>
                         <tr>
                             <th th:attr="style=${tstyle}, colspan=${n}">Normalized eigenvectors</th>
-                            <!-- <th th:attr="style=${tstyle}" colspan="*">Eigenvectors</th> -->
                         </tr>
                     </thead>
                     <tbody>
