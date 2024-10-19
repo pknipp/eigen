@@ -25,12 +25,11 @@
                             <td th:each="eigenvalue : ${eigenvalues}" th:text="${eigenvalue}"></td>
                         </tr>
                     </tbody>
-                </table>
-            </div>
-            <br/>
-            <p align="center">Eigenvectors:</p>
-            <div align="center">
-                <table border="1">
+                    <thead>
+                        <tr>
+                            <th th:attr="colspan=${n}" style="text-align: center">Eigenvectors</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr th:each="eigenvector : ${eigenvectors}">
                             <td th:each="component : ${eigenvector}" th:text="${component}"/>
