@@ -31,7 +31,7 @@ public class GettingStartedApplication {
 
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
-        char openParen = "'('";
+        String openParen = "'('";
         if (pathFragment.equals("favicon.ico")) {
             model.addAttribute("path_fragment", "This was the favicon.ico route.");
         } else {
