@@ -56,6 +56,7 @@ public class GettingStartedApplication {
                 String[] colArr = col.split(",");
                 if (colArr.length != i + 1) {
                     model.addAttribute("error", "The " + (i + 1) + "-th set of parentheses " + col + " should enclose " + i + " commas, not " + (colArr.length - 1) + ".");
+                    return "error";
                 }
                 for (int j = 0; j <= i; j++) {
                     float val = Float.parseFloat(colArr[j]);
