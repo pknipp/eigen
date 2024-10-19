@@ -8,7 +8,7 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th th:attr="colspan=${n}">Matrix</th>
+                            <th th:attr="colspan=${n}" style="text-align: center">Matrix</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -16,10 +16,13 @@
                             <td style="text-align: center; padding: 3px 10px;" th:each="element : ${row}" th:text="${element}"/>
                         </tr>
                     </tbody>
+                    <thead>
+                        <tr>
+                            <th th:attr="colspan=${n}" style="text-align: center">Eigenvalues</th>
+                        </tr>
+                    </thead>
                 </table>
             </div>
-            <br/>
-            <p align="center">Eigenvalues:</p>
             <div align="center">
                 <table border="1">
                     <tbody>
