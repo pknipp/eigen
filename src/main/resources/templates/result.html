@@ -3,7 +3,6 @@
     <body>
         <div class="container">
             <p align="center">RESULTS:</p>
-            <p align="center">Matrix:</p>
             <div align="center">
                 <table border="1">
                     <thead>
@@ -21,10 +20,6 @@
                             <th th:attr="colspan=${n}" style="text-align: center">Eigenvalues</th>
                         </tr>
                     </thead>
-                </table>
-            </div>
-            <div align="center">
-                <table border="1">
                     <tbody>
                         <tr>
                             <td th:each="eigenvalue : ${eigenvalues}" th:text="${eigenvalue}"></td>
