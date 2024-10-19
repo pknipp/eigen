@@ -31,12 +31,13 @@ public class GettingStartedApplication {
 
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
+        char openParen = "'('";
         if (pathFragment.equals("favicon.ico")) {
             model.addAttribute("path_fragment", "This was the favicon.ico route.");
         } else {
-            String openParen = pathFragment.substring(0,1);
-            if (!openParen.equals("(")) {
-                model.addAttribute("error", "The first character in the path fragment should be '\(', not '" + openParen + "'.");
+            String thisChar = pathFragment.charAt(0);
+            if (!thisChar.equals(openParen)) {
+                model.addAttribute("error", "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.");
                 return "error";
             }
             pathFragment = pathFragment.substring(1);
