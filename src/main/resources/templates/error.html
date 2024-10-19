@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'error')}">
 <body>
-
-<p th:text="${error}"></p>
-
+    <p align="center"><span><b>Error:</b></span><span th:text="${error}"></span></p>
 </body>
 </html>

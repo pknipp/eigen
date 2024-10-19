@@ -82,7 +82,7 @@ public class GettingStartedApplication {
             float[][] v = new float[n][n];
             String error = jacobi(a, d, v);
             if (!error.equals("")) {
-                model.addAttribute("error": error);
+                model.addAttribute("error", error);
                 return "error";
             }
             model.addAttribute("eigenvalues", d);
