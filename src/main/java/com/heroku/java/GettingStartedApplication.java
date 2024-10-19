@@ -44,7 +44,7 @@ public class GettingStartedApplication {
             pathFragment = pathFragment.substring(1);
             thisChar = pathFragment.substring(pathFragment.length() - 1);
             if (!("'" + thisChar + "'").equals(closeParen)) {
-                model.addAttribute("error", "The last character in the path fragment should be " + closeParen + " not '" + thisChar + "'.");
+                model.addAttribute("error", "The last character in the url should be " + closeParen + " not '" + thisChar + "'.");
                 return "error";
             }
             pathFragment = pathFragment.substring(0, pathFragment.length() - 1);
@@ -88,7 +88,7 @@ public class GettingStartedApplication {
             model.addAttribute("eigenvalues", d);
             model.addAttribute("eigenvectors", v);
             model.addAttribute("n", n);
-            model.addAttribute("tstyle", "text-align: center; padding: 3px 10px;");
+            model.addAttribute("tstyle", "text-align: center; padding: 2px 8px;");
         }
         return "result";
     }

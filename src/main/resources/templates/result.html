@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'result')}">
     <body>
         <div class="container">
-            <p align="center">RESULTS:</p>
+            <p align="center"><h3>Results of diagonalization</h3></p>
             <div align="center">
                 <table border="1">
                     <thead>
                         <tr>
-                            <th th:attr="style=${tstyle}, colspan=${n}">Matrix</th>
+                            <th th:attr="style=${tstyle}, colspan=${n}">Symmetric matrix (input)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +28,7 @@
                     </tbody>
                     <thead>
                         <tr>
-                            <th th:attr="style=${tstyle}, colspan=${n}">Eigenvectors</th>
+                            <th th:attr="style=${tstyle}, colspan=${n}">Normalized eigenvectors</th>
                             <!-- <th th:attr="style=${tstyle}" colspan="*">Eigenvectors</th> -->
                         </tr>
                     </thead>

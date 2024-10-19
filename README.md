@@ -4,10 +4,6 @@ The algorithm was translated from the Fortran-77 Jacobi diagonalization routine 
 
 To do:
 
-- enable variables for use as values of attributes in template
-
-- make tables prettier (padding, etc)
-
 - put links to portfolio and repo on both pages
 
 - flesh out background/instructions page, including links to other webpages that can do this calculation
