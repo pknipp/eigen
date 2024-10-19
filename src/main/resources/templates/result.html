@@ -6,6 +6,11 @@
             <p align="center">Matrix:</p>
             <div align="center">
                 <table border="1">
+                    <thead>
+                        <tr>
+                            <th th:attr="colspan=${n}">Matrix</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <tr th:each="row : ${matrix}">
                             <td style="text-align: center; padding: 3px 10px;" th:each="element : ${row}" th:text="${element}"/>
