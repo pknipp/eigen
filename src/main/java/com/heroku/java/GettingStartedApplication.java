@@ -55,13 +55,20 @@ public class GettingStartedApplication {
                 String col = pathArr[i];
                 String[] colArr = col.split(",");
                 if (colArr.length != i + 1) {
-                    model.addAttribute("error", "The " + (i + 1) + "-th set of parentheses " + col + " should enclose " + i + " commas, not " + (colArr.length - 1) + ".");
+                    model.addAttribute("error", "The contents of the " + (i + 1) + "-th set of parentheses " + col + " should enclose " + i + " commas, not " + (colArr.length - 1) + ".");
                     return "error";
                 }
                 for (int j = 0; j <= i; j++) {
-                    float val = Float.parseFloat(colArr[j]);
-                    a[i][j] = val;
-                    a[j][i] = val;
+                    float val;
+                    try {
+                        val = Float.parseFloat(colArr[j]);
+                        a[i][j] = val;
+                        a[j][i] = val;
+                    } catch (NumberFormatException e) {
+                        String error = "The string \"" + colArr[j] + "\" cannot be parsed as a float.";
+                        model.addAttribute("error": error);
+                        return "error";
+                    }
                 }
             }
             float[][] aClone = new float[n][n];
