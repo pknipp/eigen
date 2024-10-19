@@ -54,6 +54,9 @@ public class GettingStartedApplication {
             for (int i = 0; i < n; i++) {
                 String col = pathArr[i];
                 String[] colArr = col.split(",");
+                if (colArr.length != i + 1) {
+                    model.addAttribute("error", "The " + (i + 1) "-th set of parentheses " + col + " should enclose " + i + " commas, not " + colArr.length - 1 + ".");
+                }
                 for (int j = 0; j <= i; j++) {
                     float val = Float.parseFloat(colArr[j]);
                     a[i][j] = val;
