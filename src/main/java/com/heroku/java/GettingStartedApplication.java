@@ -80,11 +80,14 @@ public class GettingStartedApplication {
             model.addAttribute("matrix", aClone);
             float[] d = new float[n];
             float[][] v = new float[n][n];
-            jacobi(a, d, v);
+            String error = jacobi(a, d, v);
+            if (!error.equals("")) {
+                model.addAttribute("error": error);
+                return "error";
+            }
             model.addAttribute("eigenvalues", d);
             model.addAttribute("eigenvectors", v);
             model.addAttribute("n", n);
-            // model.addAttribute("path_fragment", pathFragment);
         }
         return "result";
     }
@@ -111,7 +114,7 @@ public class GettingStartedApplication {
                     sm += Math.abs(a[ip][iq]);
                 }
             }
-            if (sm == 0) return "success";
+            if (sm == 0) return "";
             double tresh;
             if (i < 4) {
                 tresh = 0.2 * sm / Math.pow(n, 2);
@@ -177,7 +180,7 @@ public class GettingStartedApplication {
                 z[ip] = 0;
             }
         }
-        return "failure";
+        return "The Jacobi method did not converge after 50 iterations.";
     }
 
     @GetMapping("/database")
