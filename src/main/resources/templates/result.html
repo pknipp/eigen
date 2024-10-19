@@ -7,27 +7,27 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th th:attr="colspan=${n}" style="text-align: center">Matrix</th>
+                            <th th:attr="colspan=${n}" th:attr="${tstyle}">Matrix</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="row : ${matrix}">
-                            <td th:attr="style=${tdstyle}" th:each="element : ${row}" th:text="${element}"/>
+                            <td th:attr="style=${tstyle}" th:each="element : ${row}" th:text="${element}"/>
                         </tr>
                     </tbody>
                     <thead>
                         <tr>
-                            <th th:attr="style=${tdstyle}" th:attr="colspan=${n}" style="text-align: center">Eigenvalues</th>
+                            <th th:attr="style=${tstyle}" th:attr="colspan=${n}">Eigenvalues</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td th:attr="style=${tdstyle}" th:each="eigenvalue : ${eigenvalues}" th:text="${eigenvalue}"/>
+                            <td th:attr="style=${tstyle}" th:each="eigenvalue : ${eigenvalues}" th:text="${eigenvalue}"/>
                         </tr>
                     </tbody>
                     <thead>
                         <tr>
-                            <th th:attr="style=${tdstyle}" th:attr="colspan=${n}" style="text-align: center">Eigenvectors</th>
+                            <th th:attr="style=${tstyle}" th:attr="colspan=${n}">Eigenvectors</th>
                         </tr>
                     </thead>
                     <tbody>
