@@ -4,8 +4,6 @@ The algorithm was translated from the Fortran-77 Jacobi diagonalization routine 
 
 To do:
 
-- handle errors in urls
-
 - enable variables for use as values of attributes in template
 
 - make tables prettier (padding, etc)
