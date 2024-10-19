@@ -66,7 +66,7 @@ public class GettingStartedApplication {
                         a[j][i] = val;
                     } catch (NumberFormatException e) {
                         String error = "The string \"" + colArr[j] + "\" cannot be parsed as a float.";
-                        model.addAttribute("error": error);
+                        model.addAttribute("error", error);
                         return "error";
                     }
                 }
