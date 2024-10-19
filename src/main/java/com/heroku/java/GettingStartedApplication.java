@@ -25,7 +25,14 @@ public class GettingStartedApplication {
     }
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        float[][] exampleMatrix = {
+                {1, 2, 4},
+                {2, 3, 5},
+                {4, 5, 6}
+        };
+        model.addAttribute("exampleMatrix", exampleMatrix);
+        model.addAttribute("tstyle", "text-align: center; padding: 1px 8px;");
         return "index";
     }
 

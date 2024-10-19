@@ -6,7 +6,7 @@ To do:
 
 - put links to portfolio and repo on both pages
 
-- flesh out background/instructions page, including links to other webpages that can do this calculation
+- flesh out background/instructions page, including links to other webpages that can do this calculation and formatting example table better
 
 - make code more Java-ish, including the replacement of generic loops w/array methods
 
