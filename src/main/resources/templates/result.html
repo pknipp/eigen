@@ -12,7 +12,8 @@
                     </thead>
                     <tbody>
                         <tr th:each="row : ${matrix}">
-                            <td style="text-align: center; padding: 3px 10px;" th:each="element : ${row}" th:text="${element}"/>
+                            <td th:attr="style=${tdstyle}" th:each="element: ${row}th:each="element : ${row}" th:text="${element}"/>
+                            <!-- <td style="text-align: center; padding: 3px 10px;" th:each="element : ${row}" th:text="${element}"/> -->
                         </tr>
                     </tbody>
                     <thead>
@@ -22,7 +23,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td th:each="eigenvalue : ${eigenvalues}" th:text="${eigenvalue}"></td>
+                            <td th:each="eigenvalue : ${eigenvalues}" th:text="${eigenvalue}"/>
                         </tr>
                     </tbody>
                     <thead>
