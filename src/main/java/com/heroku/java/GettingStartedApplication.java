@@ -88,7 +88,7 @@ public class GettingStartedApplication {
             model.addAttribute("eigenvalues", d);
             model.addAttribute("eigenvectors", v);
             model.addAttribute("n", n);
-            model.addAttribute("tdstyle", "text-align: center; padding: 3px 10px;");
+            model.addAttribute("tstyle", "text-align: center; padding: 3px 10px;");
         }
         return "result";
     }
