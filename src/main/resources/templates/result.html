@@ -18,7 +18,7 @@
                     <thead>
                         <tr>
                             <!-- <th th:attr="style=${tstyle}" th:attr="colspan=${n}">Eigenvalues</th> -->
-                            <th th:attr="style=${tstyle}" colspan="*">Eigenvalues</th>
+                            <th th:attr="style=${tstyle} colspan=${n}" colspan="*">Eigenvalues</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@
                     </thead>
                     <tbody>
                         <tr th:each="eigenvector : ${eigenvectors}">
-                            <td th:attr="style=${tdstyle}" th:each="component : ${eigenvector}" th:text="${component}"/>
+                            <td th:attr="style=${tstyle}" th:each="component : ${eigenvector}" th:text="${component}"/>
                         </tr>
                     </tbody>
                 </table>
