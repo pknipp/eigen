@@ -7,7 +7,7 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th colspan="*" th:attr="style=${tstyle}">Matrix</th>
+                            <th th:attr="style=${tstyle}, colspan=${n}">Matrix</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -17,8 +17,8 @@
                     </tbody>
                     <thead>
                         <tr>
-                            <!-- <th th:attr="style=${tstyle}" th:attr="colspan=${n}">Eigenvalues</th> -->
-                            <th th:attr="style=${tstyle} colspan=${n}" colspan="*">Eigenvalues</th>
+                            <th th:attr="style=${tstyle}, colspan=${n}">Eigenvalues</th>
+                            <!-- <th th:attr="style=${tstyle} colspan=${n}" colspan="*">Eigenvalues</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -28,8 +28,8 @@
                     </tbody>
                     <thead>
                         <tr>
-                            <!-- <th th:attr="style=${tstyle}" th:attr="colspan=${n}">Eigenvectors</th> -->
-                            <th th:attr="style=${tstyle}" colspan="*">Eigenvectors</th>
+                            <th th:attr="style=${tstyle}, colspan=${n}">Eigenvectors</th>
+                            <!-- <th th:attr="style=${tstyle}" colspan="*">Eigenvectors</th> -->
                         </tr>
                     </thead>
                     <tbody>
