@@ -53,62 +53,31 @@ public class GettingStartedApplication {
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
             float[][] a = new float[0][0];
-            String errorMessage = parseUrl(pathFragment, a);
-            String openParen = "'('";
-            String closeParen = "')'";
-            String thisChar = pathFragment.substring(0, 1);
-            if (!("'" + thisChar + "'").equals(openParen)) {
-                model.addAttribute("error", "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.");
-                return "error";
-            }
-            pathFragment = pathFragment.substring(1);
-            thisChar = pathFragment.substring(pathFragment.length() - 1);
-            if (!("'" + thisChar + "'").equals(closeParen)) {
-                model.addAttribute("error", "The last character in the url should be " + closeParen + " not '" + thisChar + "'.");
-                return "error";
-            }
-            pathFragment = pathFragment.substring(0, pathFragment.length() - 1);
-            String[] pathArr = pathFragment.split("\\),\\(");
-            int n = pathArr.length;
-                a = new float[n][n];
-            for (int i = 0; i < n; i++) {
-                String col = pathArr[i];
-                String[] colArr = col.split(",");
-                if (colArr.length != i + 1) {
-                    model.addAttribute("error", "The contents of the " + (i + 1) + "-th set of parentheses " + col + " should include " + i + " commas, not " + (colArr.length - 1) + ".");
-                    return "error";
-                }
-                for (int j = 0; j <= i; j++) {
-                    float val;
-                    try {
-                        val = Float.parseFloat(colArr[j]);
-                        a[i][j] = val;
-                        a[j][i] = val;
-                    } catch (NumberFormatException e) {
-                        String error = "The string \"" + colArr[j] + "\" cannot be parsed as a float.";
-                        model.addAttribute("error", error);
-                        return "error";
-                    }
-                }
-            }
-            float[][] aClone = new float[n][n];
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    aClone[i][j] = a[i][j];
-                }
-            }
-            model.addAttribute("matrix", aClone);
-            float[] d = new float[n];
-            float[][] v = new float[n][n];
-            String error = jacobi(a, d, v);
-            if (!error.equals("")) {
+            String error = parseUrl(pathFragment, a);
+            if (!error.isEmpty()) {
                 model.addAttribute("error", error);
                 return "error";
+            } else {
+                int n = a.length;
+                float[][] aClone = new float[n][n];
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        aClone[i][j] = a[i][j];
+                    }
+                }
+                model.addAttribute("matrix", aClone);
+                float[] d = new float[n];
+                float[][] v = new float[n][n];
+                String error = jacobi(a, d, v);
+                if (!error.equals("")) {
+                    model.addAttribute("error", error);
+                    return "error";
+                }
+                model.addAttribute("eigenvalues", d);
+                model.addAttribute("eigenvectors", v);
+                model.addAttribute("n", n);
+                model.addAttribute("tstyle", "text-align: center; padding: 1px 8px;");
             }
-            model.addAttribute("eigenvalues", d);
-            model.addAttribute("eigenvectors", v);
-            model.addAttribute("n", n);
-            model.addAttribute("tstyle", "text-align: center; padding: 1px 8px;");
         }
         return "result";
     }
