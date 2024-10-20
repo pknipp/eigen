@@ -65,7 +65,7 @@ public class GettingStartedApplication {
                 float[][] a = new float[n][n];
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j < n; j++) {
-                        a[i][j] = a.get(i).get(j);
+                        a[i][j] = aFrozen.get(i).get(j);
                     }
                 }
                 model.addAttribute("matrix", aFrozen);
