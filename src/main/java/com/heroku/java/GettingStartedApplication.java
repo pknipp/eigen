@@ -112,9 +112,41 @@ public class GettingStartedApplication {
         return "result";
     }
 
-    // public String parseUrl(String pathFragment) {
-        // return {"{sampleKey}": 42};
-    // }
+    public String parseUrl(String pathFragment, float[][] a) {
+        String openParen = "'('";
+        String closeParen = "')'";
+        String thisChar = pathFragment.substring(0, 1);
+        if (!("'" + thisChar + "'").equals(openParen)) {
+            return "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.";
+        }
+        pathFragment = pathFragment.substring(1);
+        thisChar = pathFragment.substring(pathFragment.length() - 1);
+        if (!("'" + thisChar + "'").equals(closeParen)) {
+            return "The last character in the url should be " + closeParen + " not '" + thisChar + "'.";
+        }
+        pathFragment = pathFragment.substring(0, pathFragment.length() - 1);
+        String[] pathArr = pathFragment.split("\\),\\(");
+        int n = pathArr.length;
+        a = new float[n][n];
+        for (int i = 0; i < n; i++) {
+            String col = pathArr[i];
+            String[] colArr = col.split(",");
+            if (colArr.length != i + 1) {
+                return "The contents of the " + (i + 1) + "-th set of parentheses " + col + " should include " + i + " commas, not " + (colArr.length - 1) + ".";
+            }
+            for (int j = 0; j <= i; j++) {
+                float val;
+                try {
+                    val = Float.parseFloat(colArr[j]);
+                    a[i][j] = val;
+                    a[j][i] = val;
+                } catch (NumberFormatException e) {
+                    return "The string \"" + colArr[j] + "\" cannot be parsed as a float.";
+                }
+            }
+        }
+        return "";
+    }
 
     public String jacobi(float[][] a, float[] d, float[][] v) {
         // Computes all eigenvalues and eigenvectors of a real symmetric matrix a, which is of size n by n, stored in a physical np by np array. On output, elements of a above the diagonal are
