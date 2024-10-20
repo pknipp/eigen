@@ -52,6 +52,7 @@ public class GettingStartedApplication {
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
+            float[][] a;
             String openParen = "'('";
             String closeParen = "')'";
             String thisChar = pathFragment.substring(0, 1);
@@ -68,7 +69,7 @@ public class GettingStartedApplication {
             pathFragment = pathFragment.substring(0, pathFragment.length() - 1);
             String[] pathArr = pathFragment.split("\\),\\(");
             int n = pathArr.length;
-            float[][] a = new float[n][n];
+                a = new float[n][n];
             for (int i = 0; i < n; i++) {
                 String col = pathArr[i];
                 String[] colArr = col.split(",");
