@@ -61,6 +61,7 @@ public class GettingStartedApplication {
             } else {
                 System.out.println("top of good arm");
                 int n = a.length;
+                System.out.println(n);
                 float[][] aClone = new float[n][n];
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j < n; j++) {
