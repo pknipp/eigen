@@ -52,26 +52,23 @@ public class GettingStartedApplication {
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
-            ArrayList<ArrayList<Float>> aFrozen = new ArrayList<>();
-            String error = parseUrl(pathFragment, aFrozen);
+            ArrayList<ArrayList<Float>> a = new ArrayList<>();
+            String error = parseUrl(pathFragment, a);
             if (!error.isEmpty()) {
-                System.out.println("top of error arm");
                 model.addAttribute("error", error);
                 return "error";
             } else {
-                System.out.println("top of good arm");
-                int n = aFrozen.size();
-                System.out.println(n);
-                float[][] a = new float[n][n];
+                int n = a.size();
+                float[][] aClone = new float[n][n];
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j < n; j++) {
-                        a[i][j] = aFrozen.get(i).get(j);
+                        aClone[i][j] = a.get(i).get(j);
                     }
                 }
-                model.addAttribute("matrix", aFrozen);
+                model.addAttribute("matrix", a);
                 float[] d = new float[n];
                 float[][] v = new float[n][n];
-                error = jacobi(a, d, v);
+                error = jacobi(aClone, d, v);
                 if (!error.equals("")) {
                     model.addAttribute("error", error);
                     return "error";
