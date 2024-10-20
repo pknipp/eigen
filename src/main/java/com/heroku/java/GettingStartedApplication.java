@@ -101,7 +101,7 @@ public class GettingStartedApplication {
         String[] pathArr = pathFragment.split("\\),\\(");
         int n = pathArr.length;
         for (int i = 0; i < n; i++) {
-            a.add(new ArrayList<Float>);
+            a.add(new ArrayList<Float>());
         }
         for (int i = 0; i < n; i++) {
             String col = pathArr[i];
