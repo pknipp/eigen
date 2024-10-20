@@ -6,7 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -40,7 +44,7 @@ public class GettingStartedApplication {
      public ResponseEntity<String> json() {
     //    URI location = ...;
        HttpHeaders responseHeaders = new HttpHeaders();
-       responseHeaders.setLocation(location);
+    //    responseHeaders.setLocation(location);
        responseHeaders.set("MyResponseHeader", "MyValue");
        return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED);
     }
