@@ -53,7 +53,7 @@ public class GettingStartedApplication {
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
             float[][] a;
-            String error = parseUrl(pathFragment, a);
+            String errorMessage = parseUrl(pathFragment, a);
             String openParen = "'('";
             String closeParen = "')'";
             String thisChar = pathFragment.substring(0, 1);
