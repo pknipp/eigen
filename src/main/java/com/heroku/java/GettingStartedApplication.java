@@ -43,8 +43,8 @@ public class GettingStartedApplication {
         return "index";
     }
 
-    @RequestMapping("/json")
-     public ResponseEntity<String> json() {
+    @RequestMapping("/json/{pathFragment}")
+     public ResponseEntity<String> json(@PathVariable String pathFragment) {
     //    URI location = ...;
        HttpHeaders responseHeaders = new HttpHeaders();
     //    responseHeaders.setLocation(location);
