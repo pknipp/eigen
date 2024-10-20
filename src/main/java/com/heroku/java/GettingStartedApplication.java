@@ -68,7 +68,7 @@ public class GettingStartedApplication {
                 model.addAttribute("matrix", aClone);
                 float[] d = new float[n];
                 float[][] v = new float[n][n];
-                String error = jacobi(a, d, v);
+                error = jacobi(a, d, v);
                 if (!error.equals("")) {
                     model.addAttribute("error", error);
                     return "error";
