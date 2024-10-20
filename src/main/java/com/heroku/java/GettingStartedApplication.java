@@ -51,9 +51,9 @@ public class GettingStartedApplication {
 
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
-        String openParen = "'('";
-        String closeParen = "')'";
         if (!pathFragment.equals("favicon.ico")) {
+            String openParen = "'('";
+            String closeParen = "')'";
             String thisChar = pathFragment.substring(0, 1);
             if (!("'" + thisChar + "'").equals(openParen)) {
                 model.addAttribute("error", "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.");
