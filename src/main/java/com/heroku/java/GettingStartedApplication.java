@@ -52,7 +52,7 @@ public class GettingStartedApplication {
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
-            float[][] a = new float[0][0];
+            float[][] a = new float[1][1];
             String error = parseUrl(pathFragment, a);
             if (!error.isEmpty()) {
                 System.out.println("top of error arm");
