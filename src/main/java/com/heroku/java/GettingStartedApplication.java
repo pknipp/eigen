@@ -55,9 +55,11 @@ public class GettingStartedApplication {
             float[][] a = new float[0][0];
             String error = parseUrl(pathFragment, a);
             if (!error.isEmpty()) {
+                System.out.println("top of error arm");
                 model.addAttribute("error", error);
                 return "error";
             } else {
+                System.out.println("top of good arm");
                 int n = a.length;
                 float[][] aClone = new float[n][n];
                 for (int i = 0; i < n; i++) {
