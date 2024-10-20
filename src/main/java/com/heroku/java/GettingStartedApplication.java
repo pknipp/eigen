@@ -52,23 +52,23 @@ public class GettingStartedApplication {
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
-            float[][] a = new float[1][1];
-            String error = parseUrl(pathFragment, a);
+            ArrayList<ArrayList<Float>> aFrozen = new ArrayList<>();
+            String error = parseUrl(pathFragment, aFrozen);
             if (!error.isEmpty()) {
                 System.out.println("top of error arm");
                 model.addAttribute("error", error);
                 return "error";
             } else {
                 System.out.println("top of good arm");
-                int n = a.length;
+                int n = aFrozen.size();
                 System.out.println(n);
-                float[][] aClone = new float[n][n];
+                float[][] a = new float[n][n];
                 for (int i = 0; i < n; i++) {
                     for (int j = 0; j < n; j++) {
-                        aClone[i][j] = a[i][j];
+                        a[i][j] = a.get(i).get(j);
                     }
                 }
-                model.addAttribute("matrix", aClone);
+                model.addAttribute("matrix", aFrozen);
                 float[] d = new float[n];
                 float[][] v = new float[n][n];
                 error = jacobi(a, d, v);
@@ -85,7 +85,7 @@ public class GettingStartedApplication {
         return "result";
     }
 
-    public String parseUrl(String pathFragment, float[][] a) {
+    public String parseUrl(String pathFragment, ArrayList<ArrayList<Float>> a) {
         String openParen = "'('";
         String closeParen = "')'";
         String thisChar = pathFragment.substring(0, 1);
@@ -100,7 +100,9 @@ public class GettingStartedApplication {
         pathFragment = pathFragment.substring(0, pathFragment.length() - 1);
         String[] pathArr = pathFragment.split("\\),\\(");
         int n = pathArr.length;
-        a = new float[n][n];
+        for (int i = 0; i < n; i++) {
+            a.add(new ArrayList<Float>);
+        }
         for (int i = 0; i < n; i++) {
             String col = pathArr[i];
             String[] colArr = col.split(",");
@@ -111,8 +113,8 @@ public class GettingStartedApplication {
                 float val;
                 try {
                     val = Float.parseFloat(colArr[j]);
-                    a[i][j] = val;
-                    a[j][i] = val;
+                    a.get(i).add(val);
+                    a.get(j).add(val);
                 } catch (NumberFormatException e) {
                     return "The string \"" + colArr[j] + "\" cannot be parsed as a float.";
                 }
