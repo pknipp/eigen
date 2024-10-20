@@ -114,7 +114,7 @@ public class GettingStartedApplication {
                 try {
                     val = Float.parseFloat(colArr[j]);
                     a.get(i).add(val);
-                    a.get(j).add(val);
+                    if (i != j) a.get(j).add(val);
                 } catch (NumberFormatException e) {
                     return "The string \"" + colArr[j] + "\" cannot be parsed as a float.";
                 }
