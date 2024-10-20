@@ -38,7 +38,7 @@ public class GettingStartedApplication {
 
     @RequestMapping("/handle")
      public ResponseEntity<String> json() {
-       URI location = ...;
+    //    URI location = ...;
        HttpHeaders responseHeaders = new HttpHeaders();
        responseHeaders.setLocation(location);
        responseHeaders.set("MyResponseHeader", "MyValue");
