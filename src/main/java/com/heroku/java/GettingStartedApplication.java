@@ -40,9 +40,7 @@ public class GettingStartedApplication {
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         String openParen = "'('";
         String closeParen = "')'";
-        if (pathFragment.equals("favicon.ico")) {
-            model.addAttribute("path_fragment", "This was the favicon.ico route.");
-        } else {
+        if (!pathFragment.equals("favicon.ico")) {
             String thisChar = pathFragment.substring(0, 1);
             if (!("'" + thisChar + "'").equals(openParen)) {
                 model.addAttribute("error", "The first character in the path fragment should be " + openParen + " not '" + thisChar + "'.");
@@ -99,6 +97,10 @@ public class GettingStartedApplication {
         }
         return "result";
     }
+
+    // qpublic String parseUrl(String pathFragment) {
+// q
+    // q}
 
     public String jacobi(float[][] a, float[] d, float[][] v) {
         // Computes all eigenvalues and eigenvectors of a real symmetric matrix a, which is of size n by n, stored in a physical np by np array. On output, elements of a above the diagonal are
