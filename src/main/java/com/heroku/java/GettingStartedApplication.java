@@ -36,9 +36,13 @@ public class GettingStartedApplication {
         return "index";
     }
 
-    @GetMapping("/json")
-    public String json(Model model) {
-        return "{\"name\": \"John Doe\", \"age\": 30}";
+    @RequestMapping("/handle")
+     public ResponseEntity<String> json() {
+       URI location = ...;
+       HttpHeaders responseHeaders = new HttpHeaders();
+       responseHeaders.setLocation(location);
+       responseHeaders.set("MyResponseHeader", "MyValue");
+       return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED);
     }
 
     @GetMapping("/{pathFragment}")
