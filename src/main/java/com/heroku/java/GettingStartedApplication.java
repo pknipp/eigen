@@ -36,8 +36,9 @@ public class GettingStartedApplication {
         return "index";
     }
 
+    @GetMapping("/json")
     public String json(Model model) {
-        return {"sampleKey": 42};
+        return "{\"name\": \"John Doe\", \"age\": 30}";
     }
 
     @GetMapping("/{pathFragment}")
