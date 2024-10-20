@@ -40,7 +40,7 @@ public class GettingStartedApplication {
         return "index";
     }
 
-    @RequestMapping("/handle")
+    @RequestMapping("/json")
      public ResponseEntity<String> json() {
     //    URI location = ...;
        HttpHeaders responseHeaders = new HttpHeaders();
