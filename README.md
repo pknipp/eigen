@@ -15,3 +15,5 @@ To do:
 - enable json routes
 
 - create favicon.ico route?
+
+- sort eigenvalues (and - of course - their eigenvectors)

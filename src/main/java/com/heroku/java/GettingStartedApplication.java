@@ -36,6 +36,10 @@ public class GettingStartedApplication {
         return "index";
     }
 
+    public String json(Model model) {
+        return {"sampleKey": 42};
+    }
+
     @GetMapping("/{pathFragment}")
     public String echoUrl(@PathVariable String pathFragment, Model model) {
         String openParen = "'('";
@@ -98,9 +102,9 @@ public class GettingStartedApplication {
         return "result";
     }
 
-    // qpublic String parseUrl(String pathFragment) {
-// q
-    // q}
+    // public String parseUrl(String pathFragment) {
+        // return {"{sampleKey}": 42};
+    // }
 
     public String jacobi(float[][] a, float[] d, float[][] v) {
         // Computes all eigenvalues and eigenvectors of a real symmetric matrix a, which is of size n by n, stored in a physical np by np array. On output, elements of a above the diagonal are
