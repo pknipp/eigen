@@ -173,21 +173,21 @@ public class GettingStartedApplication {
                 }
             }
             if (sm == 0) {
-                for (int i = 0; i < n - 2; i++) {
-                    int k = i;
-                    int p = d[i];
-                    for (int j = i + 1; j < n; j++) {
+                for (int l = 0; l < n - 2; l++) {
+                    int k = l;
+                    int p = d[l];
+                    for (int j = l + 1; j < n; j++) {
                         if (d[j] >= p) {
                             k = j;
                             p = d[j];
                         }
                     }
-                    if (k != i) {
-                        d[k] = d[i];
-                        d[i] = p;
-                        for (int j = 1; j < n; j++) {
-                            p = v[j][i];
-                            v[j][i] = v[j][k];
+                    if (k != l) {
+                        d[k] = d[l];
+                        d[l] = p;
+                        for (int j = l; j < n; j++) {
+                            p = v[j][l];
+                            v[j][l] = v[j][k];
                             v[j][k] = p;
                         }
                     }
