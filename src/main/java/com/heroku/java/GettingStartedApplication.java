@@ -172,7 +172,28 @@ public class GettingStartedApplication {
                     sm += Math.abs(a[ip][iq]);
                 }
             }
-            if (sm == 0) return "";
+            if (sm == 0) {
+                for (int i = 0; i < n - 2; i++) {
+                    int k = i;
+                    int p = d[i];
+                    for (int j = i + 1; j < n; j++) {
+                        if (d[j] >= p) {
+                            k = j;
+                            p = d[j];
+                        }
+                    }
+                    if (k != i) {
+                        d[k] = d[i];
+                        d[i] = p;
+                        for (int j = 1; j < n; j++) {
+                            p = v[j,i];
+                            v[j, i] = v[j, k];
+                            v[j, k] = p;
+                        }
+                    }
+                }
+                return "";
+            }
             double tresh;
             if (i < 4) {
                 tresh = 0.2 * sm / Math.pow(n, 2);
