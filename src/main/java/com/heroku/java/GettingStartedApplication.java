@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,12 +43,39 @@ public class GettingStartedApplication {
     }
 
     @RequestMapping("/json/{pathFragment}")
-     public ResponseEntity<String> json(@PathVariable String pathFragment) {
+    public ResponseEntity<String> json(@PathVariable String pathFragment) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonString = objectMapper.writeValueAsString(names);
     //    URI location = ...;
-       HttpHeaders responseHeaders = new HttpHeaders();
+        HttpHeaders responseHeaders = new HttpHeaders();
     //    responseHeaders.setLocation(location);
-       responseHeaders.set("MyResponseHeader", "MyValue");
-       return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED);
+        responseHeaders.set("MyResponseHeader", "MyValue");
+
+        ArrayList<ArrayList<Float>> a = new ArrayList<>();
+        String jsonString;
+        String error = parseUrl(pathFragment, a);
+        if (!error.isEmpty()) {
+            jsonString = "{\"error\":" + error +  "}";
+        } else {
+            String aJson = objectMapper.writeValueAsString(a);
+            int n = a.size();
+            float[][] aClone = new float[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    aClone[i][j] = a.get(i).get(j);
+                }
+            }
+            float[] d = new float[n];
+            float[][] v = new float[n][n];
+            error = jacobi(aClone, d, v);
+            if (!error.equals("")) {
+                jsonString = "{\"error\":" + error +  "}";
+            } else {
+                String dJson = objectMapper.writeValueAsString(d);
+                String vJson = objectMapper.writeValueAsString(v);
+                jsonString = "{\"matrix\": " + aJson + ", \"eigenvalues\": " + dJson + ", \"eigenvectors\": " + v + "}";
+            }
+           return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.CREATED);
     }
 
     @GetMapping("/{pathFragment}")
