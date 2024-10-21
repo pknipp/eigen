@@ -12,8 +12,6 @@ To do:
 
 - generalize this from real matrices to hermitian matrices
 
-- enable json routes
-
 - create favicon.ico route?
 
 - sort eigenvalues (and - of course - their eigenvectors)
