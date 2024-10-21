@@ -175,7 +175,7 @@ public class GettingStartedApplication {
             if (sm == 0) {
                 for (int l = 0; l < n - 2; l++) {
                     int k = l;
-                    int p = d[l];
+                    float p = d[l];
                     for (int j = l + 1; j < n; j++) {
                         if (d[j] >= p) {
                             k = j;
