@@ -2,21 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
     <body>
         <div class="container">
-            <h4 style="text-align: center;"><b>Diagonalization of symmetric matrices</b></h4>
+            <h4 style="text-align: center;"><b>Matrix diagonalization</b></h4>
             <div>
                 <b>Background:</b>
-                If a <a href="https://en.wikipedia.org/wiki/Square_matrix">square matrix</a> (<b>A</b>), a number (&lambda;), and a vector (<b>v</b>) are related by the equation <b>Av</b> = &lambda;<b>v</b>, then &lambda; and <b>v</b> are said to be an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue and eigenvector</a> respectively of <b>A</b>.  An <i>n</i> x <i>n</i> matrix that is <a href="https://en.wikipedia.org/wiki/Symmetric_matrix">symmetric</a> (like most of significance and like the example below) has <i>n</i> eigenvalues, each corresponding to an eigenvector that points in a direction perpendicular to other (<i>n</i> - 1) other eigenvectors.  Many calculations involving a matrix can be done easily - if at all - only after first calculating its eigenvectors and eigenvalues, a process often called "diagonalization.  This API diagonalizes matrices using the Jacobi method.
+                If a <a href="https://en.wikipedia.org/wiki/Square_matrix">square matrix</a> (<b>A</b>), a number (&lambda;), and a <a href="https://en.wikipedia.org/wiki/Vector">vector</a> (<b>v</b>) are related by the equation <b>Av</b> = &lambda;<b>v</b>, then &lambda; and <b>v</b> are said to be an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue and eigenvector</a> respectively of <b>A</b>.  An <i>n</i> x <i>n</i> matrix that is <a href="https://en.wikipedia.org/wiki/Symmetric_matrix">symmetric</a> (like most of significance and like the example below) has <i>n</i> eigenvalues, each corresponding to an eigenvector that points in a direction perpendicular to other (<i>n</i> - 1) other eigenvectors.  Many calculations involving a matrix can be done easily - if at all - only after first calculating its eigenvectors and eigenvalues, a process often called <a href="https://en.wikipedia.org/wiki/Diagonalization">diagonalization</a>.  This API diagonalizes matrices using the Jacobi method.
                 </ul>
             </div>
             <br/>
             <div>
                 <b>Instructions:</b>
-                After the url above you should type <tt>/</tt> followed by a comma-separated list of the <a href="https://en.wikipedia.org/wiki/Row_and_column_vectors">column vectors</a>, none of which includes elements in the lower-triangular portion of the matrix.  Each column vector is a parenthesis-wrapped comma-separated list of numbers. If you want the results in json instead of html, snuggle <tt>/json</tt> immediately after <tt>...heroku.com</tt>
+                After the url above you should type <tt>/</tt> followed by a comma-separated list of the <a href="https://en.wikipedia.org/wiki/Row_and_column_vectors">column vectors</a>, none of which includes elements in the <a href="https://en.wikipedia.org/wiki/Triangular_matrix">lower-triangular</a>    portion of the matrix.  Each column vector is a parenthesis-wrapped comma-separated list of numbers. If you want the results in json instead of html, snuggle <tt>/json</tt> immediately after <tt>...heroku.com</tt>
             </div>
             <br/>
             <div>
                 <b>Example: </b>
-                The symmetric matrix depicted below is specified for this API by the url
+                The matrix depicted below is specified for this API by the url
                 <nobr><tt>...heroku.com/(1),(2,3),(4,5,6)</tt></nobr>
                 <br/>Note that the last number (1, 3, or 6) in each column vector is along the matrix's <a href="https://en.wikipedia.org/wiki/Main_diagonal">diagonal</a>.
                 <table border="1">
@@ -28,7 +28,7 @@
                 </table>
                 The eigenvalues for this particular matrix are approximately -0.057, -1.507, and 11.564.
             </div>
-            <br/><br/>
+            <br/>
             <div>Unrelated webpages that also calculate eigenvalues and eigenvectors:</div>
             <ul>
                 <li><a href="https://www.wolframalpha.com/calculators/eigenvalue-calculator">WolframAlpha</a></li>
