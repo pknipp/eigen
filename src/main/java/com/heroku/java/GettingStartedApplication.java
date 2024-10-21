@@ -219,10 +219,10 @@ public class GettingStartedApplication {
                         float s = t * c;
                         float tau = s / (1 + c);
                         h = t * a[ip][iq];
-                        z[ip] = z[ip] - h;
-                        z[iq] = z[iq] + h;
-                        d[ip] = d[ip] - h;
-                        d[iq] = d[iq] + h;
+                        z[ip] -= h;
+                        z[iq] += h;
+                        d[ip] -= h;
+                        d[iq] += h;
                         a[ip][iq] = 0;
                         for (int j = 0; j < ip; j++) {
                             g = a[j][ip];
@@ -253,7 +253,7 @@ public class GettingStartedApplication {
                 }
             }
             for (int ip= 0; ip < n; ip++) {
-                b[ip] = b[ip] + z[ip];
+                b[ip] += z[ip];
                 d[ip] = b[ip];
                 z[ip] = 0;
             }
