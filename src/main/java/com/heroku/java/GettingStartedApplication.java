@@ -75,7 +75,8 @@ public class GettingStartedApplication {
                 String vJson = objectMapper.writeValueAsString(v);
                 jsonString = "{\"matrix\": " + aJson + ", \"eigenvalues\": " + dJson + ", \"eigenvectors\": " + v + "}";
             }
-           return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.CREATED);
+        }
+        return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.CREATED);
     }
 
     @GetMapping("/{pathFragment}")
