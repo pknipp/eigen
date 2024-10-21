@@ -186,7 +186,7 @@ public class GettingStartedApplication {
                         d[k] = d[i];
                         d[i] = p;
                         for (int j = 1; j < n; j++) {
-                            p = v[j,i];
+                            p = v[j, i];
                             v[j, i] = v[j, k];
                             v[j, k] = p;
                         }
