@@ -45,7 +45,6 @@ public class GettingStartedApplication {
     @RequestMapping("/json/{pathFragment}")
     public ResponseEntity<String> json(@PathVariable String pathFragment) {
         ObjectMapper objectMapper = new ObjectMapper();
-        String jsonString = objectMapper.writeValueAsString(names);
     //    URI location = ...;
         HttpHeaders responseHeaders = new HttpHeaders();
     //    responseHeaders.setLocation(location);
