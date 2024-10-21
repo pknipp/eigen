@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'index')}">
-<body>
-
-<div class="container">
-    <p align="center"><a href = "https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">Eigenvectors and Eigenvalues</a> of <a href="https://en.wikipedia.org/wiki/Symmetric_matrix">Symmetric Matrices</a> (WIP)</p>
-    <div>
-        <b>Background:</b> This API calculates the eigenvectors and eigenvalues (together often called "diagonalization) of symmetric real matrices.  Many calculations involving such a matrix can only be done easily - if at all - after it has been diagonalized.</li>
-        </ul>
-    </div>
-    <div>
-        <b>Instructions:</b> After the url above you should type <tt>/</tt> followed by a comma-separated list of the column vectors which do not include elements in the lower-triangular portion of the matrix.  Each column vector is a parenthesis-wrapped comma-separated list of numbers.  For instance the symmetric matrix depicted below is specified by
-        <nobr><tt>...heroku.com/(1),(2,3),(4,5,6)</tt></nobr>
-    </div>
-    <table border="1">
-        <tbody>
-            <tr th:each="row : ${exampleMatrix}">
-                <td th:attr="style=${tstyle}" th:each="element : ${row}" th:text="${element}"/>
-            </tr>
-        </tbody>
-    </table>
-    The eigenvalues for this matrix are approximately -0.057, -1.507, and 11.564. <br/>If you want the results in json instead of html, snuggle <tt>/json</tt> immediately after <tt>...heroku.com</tt>
-</div>
-<div>Other webpages that calculate eigenvalues and eigenvectors:</div>
-<ul>
-    <li><a href="https://www.wolframalpha.com/calculators/eigenvalue-calculator">WolframAlpha</a></li>
-    <li><a href="https://matrixcalc.org/vectors.html">Matrix calculator</a></li>
-    <li><a href="https://matrixcalc.org/vectors.html">eMathHelp</a></li>
-    <li><a href="https://www.symbolab.com/solver/matrix-eigenvalues-calculator">Symbolab</a></li>
-</ul>
-
-</body>
+    <body>
+        <div class="container">
+            <p align="center">Diagonalization of symmetric matrices</a></p>
+            <div>
+                <b>Background:</b> If a <a href="https://en.wikipedia.org/wiki/Square_matrix">square matrix,</a> <b>A</b>, a number (&lambda;), and a vector (<b>v</b>) are related by the equation <b>Av</b> = &lambda;<b>v</b>, then &lambda; and <b>v</b> are said to be an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue and eigenvector</a> respectively of <b>A</b>.  An <i>n</i> x <i>n</i> matrix that is <a href="https://en.wikipedia.org/wiki/Symmetric_matrix">symmetric</a> (like most of significance and like the example below) has <i>n</i> eigenvalues, each corresponding to an eigenvector that points in a direction that is perpendicular to all of the others.  Many calculations involving a matrix can only be done easily - if at all - only after first calculating its eigenvectors and eigenvalues, a process often called "diagonalization.  This API diagonalizes matrices using the Jacobi method.
+                </ul>
+            </div>
+            <div>
+                <b>Instructions:</b> After the url above you should type <tt>/</tt> followed by a comma-separated list of the <a href="https://en.wikipedia.org/wiki/Row_and_column_vectors">column vectors</a>, none of which includes elements in the lower-triangular portion of the matrix.  Each column vector is a parenthesis-wrapped comma-separated list of numbers.  For instance the symmetric matrix depicted below is specified by
+                <nobr><tt>...heroku.com/(1),(2,3),(4,5,6)</tt></nobr>
+                Note that the last number (1, 3, or 6) in each column vector are along the matrix's <a href="https://en.wikipedia.org/wiki/Main_diagonal>diagonal</a>.
+            </div>
+            <table border="1">
+                <tbody>
+                    <tr th:each="row : ${exampleMatrix}">
+                        <td th:attr="style=${tstyle}" th:each="element : ${row}" th:text="${element}"/>
+                    </tr>
+                </tbody>
+            </table>
+            The eigenvalues for this matrix are approximately -0.057, -1.507, and 11.564. <br/>If you want the results in json instead of html, snuggle <tt>/json</tt> immediately after <tt>...heroku.com</tt>
+            <div>Unrelated webpages that also calculate eigenvalues and eigenvectors:</div>
+            <ul>
+                <li><a href="https://www.wolframalpha.com/calculators/eigenvalue-calculator">WolframAlpha</a></li>
+                <li><a href="https://matrixcalc.org/vectors.html">Matrix calculator</a></li>
+                <li><a href="https://matrixcalc.org/vectors.html">eMathHelp</a></li>
+                <li><a href="https://www.symbolab.com/solver/matrix-eigenvalues-calculator">Symbolab</a></li>
+            </ul>
+            <p align=center>
+                creator:&nbsp;
+                <a href='https://pknipp.github.io/' target='_blank' rel='noopener noreferrer'>
+                    Peter Knipp
+                </a>
+                <br/>
+                repo:&nbsp;
+                <a href='https://github.com/pknipp/eigen'
+                target='_blank' rel='noopener noreferrer'>
+                    https://github.com/pknipp/eigen
+                </a>
+        </div>
+    </body>
 </html>

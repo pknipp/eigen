@@ -4,10 +4,4 @@ The algorithm was translated from the Fortran-77 Jacobi diagonalization routine 
 
 To do:
 
-- put links to portfolio and repo on both pages
-
-- flesh out background/instructions page
-
 - generalize this from real matrices to hermitian matrices
-
-- create favicon.ico route?
