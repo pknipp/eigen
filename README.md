@@ -8,8 +8,6 @@ To do:
 
 - flesh out background/instructions page
 
-- make code more Java-ish, including the replacement of generic loops w/array methods
-
 - generalize this from real matrices to hermitian matrices
 
 - create favicon.ico route?
