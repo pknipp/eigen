@@ -73,7 +73,7 @@ public class GettingStartedApplication {
             } else {
                 String dJson = objectMapper.writeValueAsString(d);
                 String vJson = objectMapper.writeValueAsString(v);
-                jsonString = "{\"matrix\": " + aJson + ", \"eigenvalues\": " + dJson + ", \"eigenvectors\": " + v + "}";
+                jsonString = "{\"matrix\": " + aJson + ", \"eigenvalues\": " + dJson + ", \"eigenvectors\": " + vJson + "}";
             }
         }
         return new ResponseEntity<String>(jsonString, responseHeaders, HttpStatus.CREATED);
