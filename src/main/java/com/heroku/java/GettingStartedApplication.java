@@ -46,10 +46,7 @@ public class GettingStartedApplication {
     @RequestMapping("/json/{pathFragment}")
     public ResponseEntity<String> json(@PathVariable String pathFragment) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-    //    URI location = ...;
         HttpHeaders responseHeaders = new HttpHeaders();
-    //    responseHeaders.setLocation(location);
-        responseHeaders.set("MyResponseHeader", "MyValue");
 
         ArrayList<ArrayList<Float>> a = new ArrayList<>();
         String jsonString;
@@ -80,7 +77,7 @@ public class GettingStartedApplication {
     }
 
     @GetMapping("/{pathFragment}")
-    public String echoUrl(@PathVariable String pathFragment, Model model) {
+    public String diagonalize(@PathVariable String pathFragment, Model model) {
         if (!pathFragment.equals("favicon.ico")) {
             ArrayList<ArrayList<Float>> a = new ArrayList<>();
             String error = parseUrl(pathFragment, a);
@@ -155,6 +152,7 @@ public class GettingStartedApplication {
         // destroyed. d returns the eigenvalues of a in its first n elements. v is a matrix with the same
         // logical and physical dimensions as a, whose columns contain, on output, the normalized
         // eigenvectors of a. nrot returns the number of Jacobi rotations that were required.
+        // This code was translated from Fortran source code in Chapter 11 of "Numerical Recipes" book.
         int n = a.length;
         float[] b = new float[n];
         float[] z = new float[n];
@@ -173,6 +171,7 @@ public class GettingStartedApplication {
                 }
             }
             if (sm == 0) {
+                // Sort eigenvalues from smallest to largest.
                 for (int l = 0; l < n - 2; l++) {
                     int k = l;
                     float p = d[l];
