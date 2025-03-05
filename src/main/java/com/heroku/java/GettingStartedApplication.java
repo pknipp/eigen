@@ -43,7 +43,7 @@ public class GettingStartedApplication {
         return "index";
     }
 
-    @RequestMapping("/json/{pathFragment}")
+    @RequestMapping("/api/{pathFragment}")
     public ResponseEntity<String> json(@PathVariable String pathFragment) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         HttpHeaders responseHeaders = new HttpHeaders();
