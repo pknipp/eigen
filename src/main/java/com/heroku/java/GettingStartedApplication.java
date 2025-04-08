@@ -40,6 +40,8 @@ public class GettingStartedApplication {
         };
         model.addAttribute("exampleMatrix", exampleMatrix);
         model.addAttribute("tstyle", "text-align: center; padding: 1px 8px;");
+        model.addAttribute("baseUrl", "https://eigenvalue-vector-edd7507fb207.herokuapp.com/");
+        model.addAttribute("frag", "(1),(2,3),(4,5,6)");
         return "index";
     }
 
